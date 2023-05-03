@@ -6,7 +6,7 @@ public class playerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; 
     private Rigidbody2D rb; 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,6 @@ public class playerMovement : MonoBehaviour
 
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
 
-        rb.velocity = movement.normalized * moveSpeed * Time.deltaTime; 
+        rb.velocity = movement.normalized * moveSpeed * Time.deltaTime * 200f; 
     }
 }
