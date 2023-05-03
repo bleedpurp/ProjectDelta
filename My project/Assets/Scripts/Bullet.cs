@@ -15,11 +15,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) 
     {
-        var enemy = collision.collider.GetComponent<EnemyBehaviour>();
-        if(enemy)
-        {
-            enemy.TakeHit(1);
-        }
+        
 
         // GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
