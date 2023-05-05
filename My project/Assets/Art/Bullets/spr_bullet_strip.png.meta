@@ -132,10 +132,10 @@ TextureImporter:
       name: spr_bullet_strip_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 76
-        width: 19
-        height: 32
+        x: 9
+        y: 10
+        width: 21
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9230206b252c934469204e5a9a618be9
-      internalID: 1789362304
+      spriteID: 95bcfd7278bbe704a863498c0ff5863b
+      internalID: -1088516688270860596
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: spr_bullet_strip_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 43
-        width: 24
-        height: 29
+        x: 6
+        y: 45
+        width: 27
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f2ed87bd9b4b974cb4ae4ac16f559cb
-      internalID: -373100656
+      spriteID: baab1a8481c886542875f3fa16ac2b48
+      internalID: -7954704790442424214
       vertices: []
       indices: 
       edges: []
@@ -175,18 +175,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 8
+        y: 79
         width: 23
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.56}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13c1485f88dd3984ea46d60e2bec7334
-      internalID: -1969717663
+      spriteID: 68ee935556eb9e844acf068269345449
+      internalID: -3032557664722735727
       vertices: []
       indices: 
       edges: []
@@ -202,9 +202,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_bullet_strip_1: -373100656
-      spr_bullet_strip_2: -1969717663
-      spr_bullet_strip_0: 1789362304
+      spr_bullet_strip_1: -7954704790442424214
+      spr_bullet_strip_2: -3032557664722735727
+      spr_bullet_strip_0: -1088516688270860596
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
