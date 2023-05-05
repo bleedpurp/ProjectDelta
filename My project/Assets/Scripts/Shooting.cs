@@ -62,10 +62,14 @@ public class Shooting : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if(canTripleShot == false)
-        {
-            singleShot();
-        }
+            if(canTripleShot)
+            {
+                tripleShot();
+            }
+            else
+            {
+                singleShot();
+            }
         }
     }
 
@@ -74,5 +78,15 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+    void tripleShot()
+    {
+        for(int i = -1; i < 2; i++) // repeat 3 times
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0f, 0f, i * 15f));
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); // get existing rigidbody component
+            rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
+        }
     }
 }

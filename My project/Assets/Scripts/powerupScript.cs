@@ -8,12 +8,14 @@ public class powerupScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Pickup();
+            var shootingComponent = collision.gameObject.GetComponent<Shooting>();
+            shootingComponent.canTripleShot = true;
+            Destroy(gameObject);
         }
     }
 
     void Pickup() 
     {
-        Debug.Log("power up picked up");
+        
     }
 }
