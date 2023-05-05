@@ -9,13 +9,9 @@ public class powerupScript : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             var shootingComponent = collision.gameObject.GetComponent<Shooting>();
-            shootingComponent.canTripleShot = true;
+
+            shootingComponent.canTripleShot = true;                                   // SET TIMER
             Destroy(gameObject);
         }
-    }
-
-    void Pickup() 
-    {
-        
     }
 }
