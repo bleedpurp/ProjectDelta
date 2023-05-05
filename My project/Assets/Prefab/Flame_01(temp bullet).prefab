@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7392171520007009048}
   - component: {fileID: 6586018785884078552}
-  - component: {fileID: 6687806916152175174}
   - component: {fileID: 91072233886349575}
   - component: {fileID: 1534801235421043512}
-  m_Layer: 0
+  - component: {fileID: -5040181934963416177}
+  m_Layer: 6
   m_Name: Flame_01(temp bullet)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,27 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6687806916152175174
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4851244333918276012}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &91072233886349575
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb31851bc518d74f89f30da95131477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &-5040181934963416177
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851244333918276012}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

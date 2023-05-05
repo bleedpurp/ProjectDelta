@@ -15,7 +15,18 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) 
     {
-        
+        Debug.Log("collision with " + collision.gameObject.tag);
+
+        if(collision.gameObject.tag == "Enemy")
+        {
+            var healthComponent = collision.gameObject.GetComponent<Health>();
+            if(healthComponent != null) 
+            {
+                healthComponent.takeDamage(1);
+                Debug.Log("hit");
+                Destroy(gameObject);
+            }
+        }
 
         // GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
