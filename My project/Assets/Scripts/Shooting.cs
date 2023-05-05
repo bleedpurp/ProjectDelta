@@ -1,61 +1,33 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-
-// public class Shooting : MonoBehaviour
-// {
-//     public int numberOfBullets = 1;
-//     public float bulletSpeed = 20f;
-//     public GameObject bulletPrefab;
-//     private Vector3 firePoint;
-//     private const float radius = 1f;
-
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         if(Input.GetButtonDown("Fire1"))
-//         {
-//             firePoint = transform.position;
-//             SpawnBullet(numberOfBullets);
-//         }
-//     }
-
-//     private void SpawnBullet(int _numberOfBullets)
-//     {
-//         float angleStep = 360f / _numberOfBullets;
-//         float angle = 0f;
-
-//         for (int i = 0; i <= _numberOfBullets - 1; i++)
-//         {
-//             float bulletDirXPosition = firePoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
-//             float bulletDirYPosition = firePoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
-
-//             // Create vectors.
-//             Vector3 bulletVector = new Vector3(bulletDirXPosition, bulletDirYPosition, 0);
-//             Vector3 bulletMoveDirection = (bulletVector - firePoint).normalized * bulletSpeed;
-
-//             // Create game objects.
-//             GameObject tmpObj = Instantiate(bulletPrefab, firePoint, Quaternion.identity);
-//             tmpObj.GetComponent<Rigidbody>().velocity = new Vector3(bulletMoveDirection.x, 0, bulletMoveDirection.y);
-
-//             // Destory the gameobject after 10 seconds.
-//             Destroy(tmpObj, 10F);
-
-//             angle += angleStep;
-//         }
-//     }
-// }
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public bool canTripleShot;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public GameObject pulseShotPrefab;
     public float bulletForce = 20f;
+
+    public bool canTripleShot = false;
+    public bool canPulseShot = false;
+
+    IEnumerator PowerupDuration(bool powerup, float duration)
+    {
+        if (powerup)
+        {
+            yield return new WaitForSeconds(duration);
+            
+            if (powerup == canTripleShot)
+            {
+                canTripleShot = false;
+            }
+            else if (powerup == canPulseShot)
+            {
+                canPulseShot = false;
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -65,6 +37,10 @@ public class Shooting : MonoBehaviour
             if(canTripleShot)
             {
                 tripleShot();
+            }
+            else if(canPulseShot)
+            {
+                pulseShot();
             }
             else
             {
@@ -87,6 +63,29 @@ public class Shooting : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0f, 0f, i * 15f));
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); // get existing rigidbody component
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
+        }
+    }
+
+    void pulseShot() 
+    {
+        GameObject pulseShot = Instantiate(pulseShotPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = pulseShot.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if(collision.gameObject.tag == "TSpowerup")
+        {
+            canTripleShot = true;
+            StartCoroutine(PowerupDuration(canTripleShot, 5f));
+            Destroy(collision.gameObject);
+        }
+        else if(collision.gameObject.tag == "PSpowerup")
+        {
+            canPulseShot = true;
+            StartCoroutine(PowerupDuration(canPulseShot, 5f));
+            Destroy(collision.gameObject);
         }
     }
 }

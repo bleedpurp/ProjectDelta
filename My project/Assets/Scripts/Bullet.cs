@@ -22,9 +22,18 @@ public class Bullet : MonoBehaviour
             var healthComponent = collision.gameObject.GetComponent<Health>();
             if(healthComponent != null) 
             {
-                healthComponent.takeDamage(1);
-                Debug.Log("hit");
-                Destroy(gameObject);
+                if(gameObject.tag == "pulseShot")
+                {
+                    healthComponent.takeDamage(3);
+                    Debug.Log("hit");
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    healthComponent.takeDamage(1);
+                    Debug.Log("hit");
+                    Destroy(gameObject);
+                }
             }
         }
 

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - tripleShot
+  - pulseShot
+  - TSpowerup
+  - PSpowerup
   layers:
   - Default
   - TransparentFX
